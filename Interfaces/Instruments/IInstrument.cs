@@ -4,6 +4,6 @@ namespace DibryBand
 {
     public interface IInstrument
     {
-        void Play(IList<INote> notes);
+        void Play(IList<float> notes);
     }
 }

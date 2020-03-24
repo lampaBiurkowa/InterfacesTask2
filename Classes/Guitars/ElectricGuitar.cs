@@ -16,10 +16,10 @@ namespace DibryBand
             return timbre;
         }
 
-        public void Play(IList<INote> notes)
+        public void Play(IList<float> notes)
         {
             foreach (var note in notes)
-                Console.WriteLine($"Playing {FrequencyMapper.GetNoteFromHz(note.Frequency)} with timbre {Jerk().Emit()}");
+                Console.WriteLine($"Playing {FrequencyMapper.GetNoteFromHz(note)} with timbre {Jerk().Emit()}");
         }
     }
 }

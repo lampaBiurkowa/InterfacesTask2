@@ -41,21 +41,27 @@ namespace DibryBand
             return timbre;
         }
 
-        public void Play(IList<INote> notes)
+        public void Play(IList<float> notes)
         {
             Random random = new Random();
             foreach (var note in notes)
             {
+                if (note > MaxFrequency || note < MinFrequency)
+                {
+                    Console.WriteLine("I can't sing it!");
+                    continue;
+                }
+
                 VoiceTimbre timbre;
                 EmotionType emotion = (EmotionType)random.Next(0, 3);
-                if (note.Frequency >= FrequencyMapper.GetHzFromNote("B4") && (emotion == EmotionType.Subtle || emotion == EmotionType.Sad))
+                if (note >= FrequencyMapper.GetHzFromNote("B4") && (emotion == EmotionType.Subtle || emotion == EmotionType.Sad))
                     timbre = EmitFalsetto(emotion);
                 else if (emotion == EmotionType.Aggressive)
                     timbre = EmitHarshly(emotion);
                 else
                     timbre = EmitNormally(emotion);
 
-                Console.WriteLine($"Playing {FrequencyMapper.GetNoteFromHz(note.Frequency)} with timbre {timbre.Emit()}");
+                Console.WriteLine($"Playing {FrequencyMapper.GetNoteFromHz(note)} with timbre {timbre.Emit()}");
             }
         }
     }

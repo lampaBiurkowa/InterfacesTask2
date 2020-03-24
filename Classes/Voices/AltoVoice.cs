@@ -5,8 +5,8 @@ namespace DibryBand
 {
     public class AltoVoice : IFemaleVoice
     {
-        public float MaxFrequency => FrequencyMapper.GetHzFromNote("E3");
-        public float MinFrequency => FrequencyMapper.GetHzFromNote("G5");
+        public float MinFrequency => FrequencyMapper.GetHzFromNote("E3");
+        public float MaxFrequency => FrequencyMapper.GetHzFromNote("G5");
 
         public VoiceTimbre EmitNormally(EmotionType emotion)
         {
@@ -30,19 +30,25 @@ namespace DibryBand
             return timbre;
         }
 
-        public void Play(IList<INote> notes)
+        public void Play(IList<float> notes)
         {
             Random random = new Random();
             foreach (var note in notes)
             {
+                if (note > MaxFrequency || note < MinFrequency)
+                {
+                    Console.WriteLine("I can't sing it!");
+                    continue;
+                }
+
                 VoiceTimbre timbre;
                 EmotionType emotion = (EmotionType)random.Next(0, 3);
-                if (note.Frequency >= FrequencyMapper.GetHzFromNote("C5") && (emotion == EmotionType.Aggressive || emotion == EmotionType.Happy))
+                if (note >= FrequencyMapper.GetHzFromNote("C5") && (emotion == EmotionType.Aggressive || emotion == EmotionType.Happy))
                     timbre = EmitScream(emotion);
                 else
                     timbre = EmitNormally(emotion);
 
-                Console.WriteLine($"Playing {FrequencyMapper.GetNoteFromHz(note.Frequency)} with timbre {timbre.Emit()}");
+                Console.WriteLine($"Playing {FrequencyMapper.GetNoteFromHz(note)} with timbre {timbre.Emit()}");
             }
         }
     }
