@@ -39,6 +39,11 @@ namespace DibryBand
 
             foreach (var i in instruments)
                 i.Play(notes);
+
+            Performer performer1 = new Performer(new AcousticGuitar(), new BassVoice());
+            performer1.PlayGuitar(notes);
+            Performer performer2 = new Performer(new ElectricGuitar(), new AltoVoice());
+            performer2.Sing(notes);
         }
     }
 }

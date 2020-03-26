@@ -10,35 +10,35 @@ namespace DibryBand
 
         public VoiceTimbre EmitNormally(EmotionType emotion)
         {
-            VoiceTimbre timbre = new VoiceTimbre();
-            timbre.EmotionType = emotion;
-            timbre.Loud = true;
-            timbre.Harsh = false;
-            timbre.Punchy = false;
-
-            return timbre;
+            return new VoiceTimbre
+            {
+                EmotionType = emotion,
+                Loud = true,
+                Harsh = false,
+                Punchy = false
+            };
         }
 
         public VoiceTimbre EmitHarshly(EmotionType emotion)
         {
-            VoiceTimbre timbre = new VoiceTimbre();
-            timbre.EmotionType = emotion;
-            timbre.Loud = false;
-            timbre.Harsh = true;
-            timbre.Punchy = false;
-
-            return timbre;
+            return new VoiceTimbre
+            {
+                EmotionType = emotion,
+                Loud = false,
+                Harsh = true,
+                Punchy = false
+            };
         }
 
         public VoiceTimbre EmitFalsetto(EmotionType emotion)
         {
-            VoiceTimbre timbre = new VoiceTimbre();
-            timbre.EmotionType = emotion;
-            timbre.Loud = true;
-            timbre.Harsh = false;
-            timbre.Punchy = true;
-
-            return timbre;
+            return new VoiceTimbre
+            {
+                EmotionType = emotion,
+                Loud = true,
+                Harsh = false,
+                Punchy = true
+            };
         }
 
         public void Play(IList<float> notes)

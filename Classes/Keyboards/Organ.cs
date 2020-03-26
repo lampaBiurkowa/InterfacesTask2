@@ -7,11 +7,12 @@ namespace DibryBand
     {
         public KeyboardTimbre PressKey(EmotionType emotion)
         {
-            KeyboardTimbre timbre = new KeyboardTimbre();
-            timbre.EmotionType = emotion;
-            timbre.Dynamic = false;
-            timbre.Loud = true;
-            return timbre;
+            return new KeyboardTimbre
+            {
+                Dynamic = true,
+                EmotionType = emotion,
+                Loud = false
+            };
         }
 
         public void Play(IList<float> notes)

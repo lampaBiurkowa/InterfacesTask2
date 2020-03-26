@@ -9,11 +9,12 @@ namespace DibryBand
 
         public GuitarTimbre Jerk()
         {
-            GuitarTimbre timbre = new GuitarTimbre();
-            timbre.Dynamic = true;
-            timbre.Loud = false;
-            timbre.Synthetic = false;
-            return timbre;
+            return new GuitarTimbre
+            {
+                Dynamic = true,
+                Loud = false,
+                Synthetic = false
+            };
         }
 
         public void Play(IList<float> notes)
