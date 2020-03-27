@@ -5,8 +5,8 @@ namespace DibryBand
 {
     public class TenorVoice : IMaleVoice
     {
-        public float MaxFrequency => FrequencyMapper.GetHzFromNote("C5");
-        public float MinFrequency => FrequencyMapper.GetHzFromNote("A2");
+        public float MaxFrequency => FrequencyMapper.Instance.GetHzFromNote("C5");
+        public float MinFrequency => FrequencyMapper.Instance.GetHzFromNote("A2");
 
         public VoiceTimbre EmitNormally(EmotionType emotion)
         {
@@ -54,14 +54,14 @@ namespace DibryBand
 
                 VoiceTimbre timbre;
                 EmotionType emotion = (EmotionType)random.Next(0, 3);
-                if (note >= FrequencyMapper.GetHzFromNote("B4") && (emotion == EmotionType.Subtle || emotion == EmotionType.Sad))
+                if (note >= FrequencyMapper.Instance.GetHzFromNote("B4") && (emotion == EmotionType.Subtle || emotion == EmotionType.Sad))
                     timbre = EmitFalsetto(emotion);
                 else if (emotion == EmotionType.Aggressive)
                     timbre = EmitHarshly(emotion);
                 else
                     timbre = EmitNormally(emotion);
 
-                Console.WriteLine($"Playing {FrequencyMapper.GetNoteFromHz(note)} with timbre {timbre.Emit()}");
+                Console.WriteLine($"Playing {FrequencyMapper.Instance.GetNoteFromHz(note)} with timbre {timbre.Emit()}");
             }
         }
     }

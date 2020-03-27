@@ -21,7 +21,7 @@ namespace DibryBand
             foreach (var note in notes)
             {
                 EmotionType emotion = (EmotionType)random.Next(0, 3);
-                Console.WriteLine($"Playing {FrequencyMapper.GetNoteFromHz(note)} with timbre {PressKey(emotion).Emit()}");
+                Console.WriteLine($"Playing {FrequencyMapper.Instance.GetNoteFromHz(note)} with timbre {PressKey(emotion).Emit()}");
             }
         }
     }

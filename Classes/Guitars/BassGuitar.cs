@@ -20,7 +20,7 @@ namespace DibryBand
         public void Play(IList<float> notes)
         {
             foreach (var note in notes)
-                Console.WriteLine($"Playing {FrequencyMapper.GetNoteFromHz(note)} with timbre {Jerk().Emit()}");
+                Console.WriteLine($"Playing {FrequencyMapper.Instance.GetNoteFromHz(note)} with timbre {Jerk().Emit()}");
         }
     }
 }

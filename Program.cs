@@ -28,14 +28,14 @@ namespace DibryBand
             instruments.Add(tenor);
 
             List<float> notes = new List<float>();
-            notes.Add(FrequencyMapper.GetHzFromNote("C3"));
-            notes.Add(FrequencyMapper.GetHzFromNote("D3"));
-            notes.Add(FrequencyMapper.GetHzFromNote("E3"));
-            notes.Add(FrequencyMapper.GetHzFromNote("F3"));
-            notes.Add(FrequencyMapper.GetHzFromNote("G3"));
-            notes.Add(FrequencyMapper.GetHzFromNote("A3"));
-            notes.Add(FrequencyMapper.GetHzFromNote("B3"));
-            notes.Add(FrequencyMapper.GetHzFromNote("C4"));
+            notes.Add(FrequencyMapper.Instance.GetHzFromNote("C3"));
+            notes.Add(FrequencyMapper.Instance.GetHzFromNote("D3"));
+            notes.Add(FrequencyMapper.Instance.GetHzFromNote("E3"));
+            notes.Add(FrequencyMapper.Instance.GetHzFromNote("F3"));
+            notes.Add(FrequencyMapper.Instance.GetHzFromNote("G3"));
+            notes.Add(FrequencyMapper.Instance.GetHzFromNote("A3"));
+            notes.Add(FrequencyMapper.Instance.GetHzFromNote("B3"));
+            notes.Add(FrequencyMapper.Instance.GetHzFromNote("C4"));
 
             foreach (var i in instruments)
                 i.Play(notes);
